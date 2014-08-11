@@ -1,0 +1,8 @@
+<template name="projectTemplate">
+{{#with singleProject}}
+<h3>Here is the {{this.name}}</h3>
+<p>And this is the {{type}}</p>
+<p>And these are the tasks associated with it </p>
+{{> tasksTemplate}}
+{{/with}}
+</template>

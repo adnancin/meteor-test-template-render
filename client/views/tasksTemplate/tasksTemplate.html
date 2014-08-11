@@ -1,0 +1,10 @@
+<template name="tasksTemplate">
+    <ul>
+    {{#each tasks}}
+        <li>
+            <h4>Task title:{{name}}</h4>
+            <p>Estimated time: {{estimate}}</p>
+        </li>
+    {{/each}}    
+    </ul>
+</template>
