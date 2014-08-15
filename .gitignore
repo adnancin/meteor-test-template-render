@@ -3,4 +3,4 @@
 *.*.~
 *.swp
 *.*.swp
-.meteor/
+.meteor/local
