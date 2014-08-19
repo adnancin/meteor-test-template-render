@@ -5,3 +5,7 @@ Meteor.publish('projects', function(){
 Meteor.publish('tasks', function(){
     return Tasks.find({});
 });
+
+Meteor.publish('ownerprojects', function(){
+    return OwnerProjects.find({});
+});

@@ -1,8 +1,13 @@
 <template name="projectTemplate">
-{{#with singleProject}}
+{{#with superTemplate}}
+{{fullName}}
+{{#each multiProject}}
 <h3>Here is the {{this.name}}</h3>
 <p>And this is the {{type}}</p>
+<p>And here they are combined: {{nameType}}</p>
 <p>And these are the tasks associated with it </p>
 {{> tasksTemplate}}
+{{/each}}
 {{/with}}
+<!--{{anotherJunkTemplate}} -->
 </template>

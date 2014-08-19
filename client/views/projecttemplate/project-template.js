@@ -1,9 +1,23 @@
 Template.projectTemplate.helpers({
     singleProject:function(){
-        if (Projects.findOne()){
+        if (ProjectSubscription.ready()){
             console.log("getting the single project");
-            var singleProjectToReturn = Projects.findOne();
-            return new Project(singleProjectToReturn._id, singleProjectToReturn.name, singleProjectToReturn.type);
+            return Projects.findOne({_id:'MJonpDZrbyHc2EoHp'});
+        }
+    },
+
+    multiProject: function(){
+        console.log("getting the single project");
+        if(ProjectSubscription.ready()){
+            return Projects.find({});
+        }
+    },
+    anotherJunkTemplate: function(){
+        console.log("Project junk template running");
+    },
+    superTemplate: function(){
+        if(OwnerProjectsSubscription.ready()){
+            return OwnerProjects.findOne();
         }
     }
 });
