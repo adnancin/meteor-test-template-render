@@ -5,14 +5,17 @@ if(Projects.find().count()===0){
         type: "List Project"
     });
 
-    Projects.insert({
+    var secondProjectId = Projects.insert({
         name: "Second Project",
         type: "Plan Project"
     });
 
     OwnerProjects.insert({
         firstName: "Adnan",
-        lastName: "Issadeen"
+        lastName: "Issadeen",
+        projects: [
+            firstProjectId, secondProjectId
+        ]
     });
 
     Tasks.insert({

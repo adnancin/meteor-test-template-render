@@ -9,7 +9,7 @@ Template.projectTemplate.helpers({
     multiProject: function(){
         console.log("getting the single project");
         if(ProjectSubscription.ready()){
-            return Projects.find({});
+            return Projects.find({_id:{$in:this.projects}});
         }
     },
     anotherJunkTemplate: function(){
