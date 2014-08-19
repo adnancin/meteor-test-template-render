@@ -6,6 +6,10 @@ Template.tasksTemplate.helpers({
             return Tasks.find({projectId:this._id});
         }
     },
+    combinedNameEstimate: function(){
+        console.log("combining name and estimate");
+        return this.name + " : " + this.estimate;
+    },
     junkTemplateThing: function(){
         console.log("junk template helper running here");
     }
