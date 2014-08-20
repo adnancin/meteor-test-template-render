@@ -10,7 +10,4 @@ Template.tasksTemplate.helpers({
         console.log("combining name and estimate");
         return this.name + " : " + this.estimate;
     },
-    junkTemplateThing: function(){
-        console.log("junk template helper running here");
-    }
 });

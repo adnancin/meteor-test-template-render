@@ -1,23 +1,19 @@
 Template.projectTemplate.helpers({
-    singleProject:function(){
-        if (ProjectSubscription.ready()){
-            console.log("getting the single project");
-            return Projects.findOne({_id:'MJonpDZrbyHc2EoHp'});
-        }
-    },
-
-    multiProject: function(){
-        console.log("getting the single project");
-        if(ProjectSubscription.ready()){
-            return Projects.find({_id:{$in:this.projects}});
-        }
-    },
-    anotherJunkTemplate: function(){
-        console.log("Project junk template running");
-    },
-    superTemplate: function(){
+    ownerProjectId: function(){
         if(OwnerProjectsSubscription.ready()){
-            return OwnerProjects.findOne();
+            return OwnerProjects.findOne({},{fields:{_id:1}});
         }
+    },
+    ownerProjectData: function(){
+        return OwnerProjects.findOne(this._id);
+    },
+    multiProject: function(){
+        console.log("getting the project Ids");
+        if(ProjectSubscription.ready()){
+            return Projects.find({_id:{$in:OwnerProjects.findOne({_id:this._id},{fields:{projects:1}}).projects}},{fields:{id:1}});
+        }
+    },
+    singleProjectData: function(){
+        return Projects.findOne({_id:this._id});
     }
 });
