@@ -20,5 +20,19 @@ Template.changeDataTemplate.events({
         else{
             OwnerProjects.update({_id:ownerProject._id},{$set:{firstName: "Adnan"}});
         }
+    },
+    'click #add-project-with-task': function(){
+        var ownerProject = OwnerProjects.findOne();
+        var projectCount = Projects.find({},{fields:{_id:1}}).count() + 1;
+        var insertedProjectId = Projects.insert({
+            name: "Project number " + projectCount.toString(),
+            type: "Button Project",
+            owner: ownerProject._id
+        });
+        Tasks.insert({
+            projectId: insertedProjectId,
+            name: "First task for Project " + projectCount.toString(),
+            estimate: 0
+        })
     }
 });
