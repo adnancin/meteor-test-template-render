@@ -4,12 +4,12 @@ OwnerProjectsSubscription = Meteor.subscribe('ownerprojects');
 
 Template.changeDataTemplate.events({
     'click #change-project-info': function(){
-        var theOnlyProject = Projects.findOne();
+        var theOnlyProject = Projects.findOne({},{sort:{_id:1}});
         if(theOnlyProject.name === "First Project"){
-            Projects.update({_id:Projects.findOne()._id},{$set:{name: "Edited Project Name"}});
+            Projects.update({_id:theOnlyProject._id},{$set:{name: "Edited Project Name"}});
         }
         else{
-            Projects.update({_id:Projects.findOne()._id},{$set:{name: "First Project"}});
+            Projects.update({_id:theOnlyProject._id},{$set:{name: "First Project"}});
         }
     },
     'click #change-owner-info': function(){

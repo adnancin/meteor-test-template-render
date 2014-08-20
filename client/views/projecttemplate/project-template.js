@@ -10,7 +10,7 @@ Template.projectTemplate.helpers({
     multiProject: function(){
         console.log("getting the project Ids");
         if(ProjectSubscription.ready()){
-            return Projects.find({_id:{$in:OwnerProjects.findOne({_id:this._id},{fields:{projects:1}}).projects}},{fields:{id:1}});
+            return Projects.find({owner:this._id},{fields:{_id:1},sort:{_id:1}});
         }
     },
     singleProjectData: function(){
